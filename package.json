@@ -18,9 +18,12 @@
   "dependencies": {
     "gatsby": "^4.10.3",
     "gatsby-plugin-react-helmet": "^5.10.0",
+    "gsap": "^3.9.1",
+    "locomotive-scroll": "^4.1.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "swiper": "^8.0.7"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",
