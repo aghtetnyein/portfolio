@@ -59,9 +59,15 @@
   display: none;
 }
 
+@media only screen and (max-width: 768px) {
+  .swiper-pagination {
+    display: none;
+  }
+}
+
 .swiper-pagination {
   position: fixed;
-  top: 2rem !important;
+  bottom: 3rem !important;
 }
 
 .swiper-slide {

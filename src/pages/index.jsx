@@ -104,12 +104,26 @@ const IndexPage = () => {
         <Swiper
           id="thumbs"
           modules={[Mousewheel, FreeMode]}
-          spaceBetween={10}
-          slidesPerView={18}
+          spaceBetween={6}
+          slidesPerView={12}
           mousewheel={true}
           onSwiper={setThumbsSwiper}
           freeMode={true}
           centeredSlides={true}
+          breakpoints={{
+            320: {
+              slidesPerView: 2.5,
+            },
+            640: {
+              slidesPerView: 6,
+            },
+            768: {
+              slidesPerView: 8,
+            },
+            1024: {
+              slidesPerView: 10,
+            },
+          }}
           className="w-full h-screen flex items-center justify-center"
         >
           {data.projects.map((project, key) => (
@@ -140,8 +154,9 @@ const IndexPage = () => {
       >
         <Swiper
           id="main"
+          className="mySwiper"
           thumbs={{ swiper: thumbsSwiper }}
-          modules={[Keyboard]}
+          modules={[Keyboard, Pagination]}
           pagination={pagination}
           slidesPerView={1.5}
           centeredSlides={true}
@@ -149,9 +164,18 @@ const IndexPage = () => {
           keyboard={{
             enabled: true,
           }}
-          className="mySwiper"
-          tag="section"
-          wrapperTag="ul"
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 2,
+            },
+            768: {
+              slidesPerView: 1.3,
+              spaceBetween: 8,
+            },
+          }}
+          // tag="section"
+          // wrapperTag="ul"
           // onInit={(swiper) => console.log("Swiper initialized!", swiper)}
           // onSlideChange={(swiper) => {
           //   console.log("Slide index changed to: ", swiper.activeIndex);
@@ -161,13 +185,18 @@ const IndexPage = () => {
           {data.projects.map((project, key) => (
             <SwiperSlide key={key}>
               {({ isActive }) => (
-                <div className="flex flex-col justify-center mx-24 pt-14 relative">
-                  <h2
-                    className={`absolute -top-12 font-bold logo-font`}
-                    style={{ fontSize: "9rem", color: project.textColor }}
-                  >
-                    {project.title}
-                  </h2>
+                <div className="flex flex-col justify-center mx-4 lg:mx-16 xl:mx-24 pt-20 lg:pt-14 relative">
+                  <div>
+                    <h2
+                      className={`absolute top-3 md:-top-6 lg:-top-4 font-bold logo-font w-80 text-size lg:text-9xl`}
+                      style={{
+                        color: project.textColor,
+                        wordWrap: "break-word",
+                      }}
+                    >
+                      {project.title}
+                    </h2>
+                  </div>
 
                   <div className="w-full h-full flex flex-col items-center justify-center">
                     <img
@@ -178,12 +207,16 @@ const IndexPage = () => {
                   </div>
 
                   <div
-                    className="pt-12 flex items-start justify-between text-sm"
+                    className="pt-12 flex items-start justify-between text-sm text-center"
                     style={{ color: project.textColor }}
                   >
-                    <p className="">{project.title}</p>
-                    <p className="underline font-bold font-xs">Explore</p>
-                    <p className="">{project.description}</p>
+                    <p className="hidden lg:block w-full">{project.title}</p>
+                    <p className="underline font-bold font-xs w-full">
+                      Explore
+                    </p>
+                    <p className="hidden lg:block w-full">
+                      {project.description}
+                    </p>
                   </div>
                 </div>
               )}

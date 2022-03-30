@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
         </h1>
       </div>
 
-      <div className="fixed z-10 top-8 right-8 logo-font">
+      <div className="fixed z-10 top-10 right-8 logo-font">
         <p className="text-xs font-semibold text-gray-400 underline cursor-pointer">
           About
         </p>
