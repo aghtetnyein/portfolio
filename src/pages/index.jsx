@@ -188,7 +188,7 @@ const IndexPage = () => {
                 <div className="flex flex-col justify-center mx-4 lg:mx-16 xl:mx-24 pt-20 lg:pt-14 relative">
                   <div>
                     <h2
-                      className={`absolute top-3 md:-top-6 lg:-top-4 font-bold logo-font w-80 text-size lg:text-9xl`}
+                      className={`absolute top-3 md:-top-6 lg:-top-4 font-bold logo-font w-full text-size lg:text-9xl`}
                       style={{
                         color: project.textColor,
                         wordWrap: "break-word",
